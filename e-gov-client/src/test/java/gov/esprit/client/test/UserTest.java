@@ -8,7 +8,7 @@ import javax.naming.NamingException;
 import org.junit.Test;
 
 import gov.esprit.domain.Citoyen;
-import gov.esprit.service.UserServiceRemote;
+import gov.esprit.service.user.UserServiceRemote;
 
 public class UserTest {
 
@@ -19,7 +19,9 @@ public class UserTest {
 			.lookup("e-gov-ear/e-gov-ejb/UserService!gov.esprit.service.UserServiceRemote");
 
 		Citoyen user = new Citoyen();
-		user.setNom("test");
+		user.setNom("nom");
+		user.setPrenom("prenom");
+		user.setCin("123");
 		proxy.addUser(user);
 			
 		assertEquals(1, proxy.findAll().size());
