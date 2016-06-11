@@ -35,8 +35,18 @@ public class Demande implements Serializable {
 	private EtapeCin etapeCin;
 	private EtapePasseport etapePasseport;
 	private EtapePermis	etapePermis;
+	private TypePermis typePermis;
+
 	
 	
+	public TypePermis getTypePermis() {
+		return typePermis;
+	}
+
+	public void setTypePermis(TypePermis typePermis) {
+		this.typePermis = typePermis;
+	}
+
 	public Demande() {
 	}   
 	
@@ -110,8 +120,4 @@ public class Demande implements Serializable {
 	public void setEtapePermis(EtapePermis etapePermis) {
 		this.etapePermis = etapePermis;
 	}
-
-	
-	
-   
 }

@@ -1,7 +1,6 @@
 package gov.esprit.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -45,14 +44,14 @@ public class Citoyen implements Serializable {
 	
 	private List<Permis> permis;
 	private Passeport passeport;
-	private String extraitNaissance;
+	
 	private List<SanctionPenale> sanctions;
 	private List<Vehicule> vehicules;
 	private List<Compte>comptes;
 	private List<Demande>demandes;
 	private List<AbonnementTransport> abonnementTransports;
 	
-	@Column(unique=true, length=8)
+	
 	private String cin;
 
 	private static final long serialVersionUID = 1L;
@@ -93,12 +92,14 @@ public class Citoyen implements Serializable {
 	public void setDateDeces(Date dateDeces) {
 		this.dateDeces = dateDeces;
 	}
+	@Enumerated(EnumType.STRING)
 	public Sex getSex() {
 		return sex;
 	}
 	public void setSex(Sex sex) {
 		this.sex = sex;
 	}
+	@Enumerated(EnumType.STRING)
 	public Civilite getCivilite() {
 		return civilite;
 	}
@@ -153,12 +154,7 @@ public class Citoyen implements Serializable {
 	public void setPasseport(Passeport passeport) {
 		this.passeport = passeport;
 	}
-	public String getExtraitNaissance() {
-		return extraitNaissance;
-	}
-	public void setExtraitNaissance(String extraitNaissance) {
-		this.extraitNaissance = extraitNaissance;
-	}
+	
 	@OneToMany(mappedBy="citoyen")
 	public List<SanctionPenale> getSanctions() {
 		return sanctions;
@@ -191,6 +187,7 @@ public class Citoyen implements Serializable {
 	/**
 	 * @return the cin
 	 */
+	@Column(unique=true)
 	public String getCin() {
 		return cin;
 	}
@@ -209,4 +206,11 @@ public class Citoyen implements Serializable {
 	public void setGouvernerat(Gouvernerat gouvernerat) {
 		this.gouvernerat = gouvernerat;
 	}
+	@Override
+	public String toString() {
+		return "Citoyen [ nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
+				+ ", cin=" + cin + "]";
+	}
+	
+	
 }

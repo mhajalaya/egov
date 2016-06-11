@@ -35,6 +35,8 @@ public class DashbordController {
 	@FXML
 	private Button btn_fonctionalite_one;
 	@FXML
+	private Button btn_fonctionalite_four;
+	@FXML
 	private Button btn_logout;
 	@FXML
 	private Button gestionuser;
@@ -120,6 +122,35 @@ public class DashbordController {
 			try {
 				MainApp.primaryStage.setTitle("Espace Ministère de l'intérieur");
 				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteTwo.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+				Scene scene = new Scene(page);
+				MainApp.primaryStage.setScene(scene);
+				MainApp.primaryStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		});
+		
+		btn_fonctionalite_three.setOnAction((event) -> {
+
+			try {
+				MainApp.primaryStage.setTitle("Espace Poste");
+				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteThree.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+				Scene scene = new Scene(page);
+				MainApp.primaryStage.setScene(scene);
+				MainApp.primaryStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		});
+		btn_fonctionalite_four.setOnAction((event) -> {
+
+			try {
+				MainApp.primaryStage.setTitle("Espace Transport");
+				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteFour.fxml"));
 				AnchorPane page = (AnchorPane) loader.load();
 				Scene scene = new Scene(page);
 				MainApp.primaryStage.setScene(scene);

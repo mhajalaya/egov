@@ -20,6 +20,11 @@ public class EtapePermis implements Serializable{
 	
 	
 	public EtapePermis() {
+		this.certifMedicalPermis=Boolean.FALSE;
+		this.photosPermis=Boolean.FALSE;
+		this.impressionPermis=Boolean.FALSE;
+		this.livraisonPermis=Boolean.FALSE;
+		this.examenPermis=Boolean.FALSE;
 	}
 
 

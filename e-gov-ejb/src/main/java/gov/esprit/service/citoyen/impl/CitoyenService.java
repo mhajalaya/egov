@@ -1,16 +1,6 @@
 package gov.esprit.service.citoyen.impl;
 
-import gov.esprit.domain.Citoyen;
-import gov.esprit.enums.EtatDemande;
-import gov.esprit.enums.Gouvernerat;
-import gov.esprit.exception.EgovErrorCode;
-import gov.esprit.exception.EgovException;
-import gov.esprit.service.citoyen.CitoyenServiceLocal;
-import gov.esprit.service.citoyen.CitoyenServiceRemote;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.ejb.LocalBean;
@@ -18,6 +8,13 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import gov.esprit.domain.Citoyen;
+import gov.esprit.enums.Gouvernerat;
+import gov.esprit.exception.EgovErrorCode;
+import gov.esprit.exception.EgovException;
+import gov.esprit.service.citoyen.CitoyenServiceLocal;
+import gov.esprit.service.citoyen.CitoyenServiceRemote;
 
 /**
  * Session Bean implementation class CitoyenService
@@ -47,7 +44,7 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
 		try {
 			
 			Query query = em.createQuery(
-				    "SELECT * FROM Citoyen c WHERE c.cin = :cin"
+				    "select c from Citoyen c where c.cin = :cin "
 				);
 			query.setParameter("cin", cin);
 			citoyen = (Citoyen) query.getSingleResult();
@@ -65,7 +62,6 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
 		Citoyen citoyen = null;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		try {
-			String d = sdf.format(date);
 			Date dd = sdf.parse(sdf.format(date));
 		
 			Query query = em.createQuery(
@@ -89,7 +85,4 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
 		}
 		return citoyen;		
 	}
-	
-	
-	
 }

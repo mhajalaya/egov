@@ -5,7 +5,6 @@ import static gov.esprit.enums.EtatDemande.EN_COURS;
 import static gov.esprit.enums.EtatDemande.IRRIGULARITE;
 import static gov.esprit.enums.EtatDemande.PRET;
 
-import java.nio.file.attribute.AclEntry.Builder;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,14 +13,10 @@ import java.util.UUID;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import gov.esprit.business.CinInfo;
 import gov.esprit.business.TraiterDemandeInfo;
@@ -36,7 +31,7 @@ import gov.esprit.exception.EgovException;
 import gov.esprit.service.cin.DemandeCINServiceLocal;
 import gov.esprit.service.cin.DemandeCINServiceRemote;
 import gov.esprit.service.citoyen.CitoyenServiceLocal;
-import gov.esprit.service.demande.impl.DemandeServiceLocal;
+import gov.esprit.service.demande.DemandeServiceLocal;
 import gov.esprit.service.user.UserServiceLocal;
 import gov.esprit.utils.Identifier;
 

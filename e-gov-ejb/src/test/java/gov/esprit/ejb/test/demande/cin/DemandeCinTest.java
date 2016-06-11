@@ -60,6 +60,7 @@ public class DemandeCinTest {
 			assertEquals(1, cinService.findAll().size());
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail("Unexcepted error occurs!");
 
 		}
